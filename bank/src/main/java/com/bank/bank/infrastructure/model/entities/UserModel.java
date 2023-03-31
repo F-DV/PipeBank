@@ -1,10 +1,10 @@
-package com.bank.bank.domain.model;
+package com.bank.bank.infrastructure.model.entities;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class User {
-
+//Todo: Investigar como Modelar la tabla en la base de datos para webflux, por ahora estoy integrando una clase normal
+public class UserModel {
     private Long id;
     private String name;
     private String lastName;
@@ -12,10 +12,10 @@ public class User {
     private String phoneNumber;
     private String numberAccount;
 
-    public User() {
+    public UserModel() {
     }
 
-    public User(Long id, String name, String lastName, Date birthday, String phoneNumber, String numberAccount) {
+    public UserModel(Long id, String name, String lastName, Date birthday, String phoneNumber, String numberAccount) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -76,7 +76,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        UserModel user = (UserModel) o;
         return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(lastName, user.lastName) && Objects.equals(birthday, user.birthday) && Objects.equals(phoneNumber, user.phoneNumber) && Objects.equals(numberAccount, user.numberAccount);
     }
 

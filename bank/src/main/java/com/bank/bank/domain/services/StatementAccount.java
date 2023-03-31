@@ -1,6 +1,4 @@
-package com.bank.bank.domain;
-
-import java.util.Date;
+package com.bank.bank.domain.services;
 
 public class StatementAccount {
 

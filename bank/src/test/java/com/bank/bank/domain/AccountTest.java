@@ -1,5 +1,6 @@
 package com.bank.bank.domain;
 
+import com.bank.bank.domain.services.Account;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
