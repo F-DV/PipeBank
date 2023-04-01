@@ -1,7 +1,7 @@
 package com.bank.bank.domain;
 
-import com.bank.bank.domain.services.Account;
-import com.bank.bank.domain.services.StatementAccount;
+import com.bank.bank.accounts.domain.services.Account;
+import com.bank.bank.accounts.domain.services.StatementAccount;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
