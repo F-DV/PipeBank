@@ -1,6 +1,6 @@
-package com.bank.bank.users.infrastructure.model.dtos.requests;
+package com.bank.bank.users.infrastructure.entities.dtos.requests;
 
-import com.bank.bank.users.infrastructure.model.dtos.UserDto;
+import com.bank.bank.users.infrastructure.entities.dtos.UserDto;
 
 public class UserRequest extends UserDto {
     public UserRequest() {

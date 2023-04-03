@@ -2,9 +2,9 @@ package com.bank.bank.users.infrastructure.mappers.impl;
 
 import com.bank.bank.users.domain.model.User;
 import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
-import com.bank.bank.users.infrastructure.model.dtos.requests.UserRequest;
-import com.bank.bank.users.infrastructure.model.dtos.responses.UserResponse;
-import com.bank.bank.users.infrastructure.model.entities.UserModel;
+import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -75,7 +75,7 @@ public class UserRestMapperImpl implements UserRestMapper {
     }
 
     @Override
-    public UserModel usertoUserModel(User user) {
+    public UserEntity usertoUserModel(User user) {
         if(user == null){
             return null;
         }
@@ -86,12 +86,12 @@ public class UserRestMapperImpl implements UserRestMapper {
         Date birthDay = user.getBirthday();
         String phoneNumer = user.getPhoneNumber();
 
-        UserModel userModel = new UserModel(id,userName,lastName,birthDay,phoneNumer,numberAccount);
+        UserEntity userModel = new UserEntity(id,userName,lastName,birthDay,phoneNumer,numberAccount);
         return userModel;
     }
 
     @Override
-    public User userModeltoUser(UserModel userModel) {
+    public User userModeltoUser(UserEntity userModel) {
         if(userModel == null){
             return null;
         }

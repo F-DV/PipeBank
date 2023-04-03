@@ -1,9 +1,9 @@
 package com.bank.bank.users.infrastructure.mappers;
 
 import com.bank.bank.users.domain.model.User;
-import com.bank.bank.users.infrastructure.model.dtos.requests.UserRequest;
-import com.bank.bank.users.infrastructure.model.dtos.responses.UserResponse;
-import com.bank.bank.users.infrastructure.model.entities.UserModel;
+import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
 
 
 public interface UserRestMapper {
@@ -16,9 +16,9 @@ public interface UserRestMapper {
 
     User userResponsetoUser(UserResponse userResponse);
 
-    UserModel usertoUserModel(User user);
+    UserEntity usertoUserModel(User user);
 
-    User userModeltoUser(UserModel userModel);
+    User userModeltoUser(UserEntity userModel);
 
 
 

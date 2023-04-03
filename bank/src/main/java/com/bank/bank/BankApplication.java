@@ -1,6 +1,6 @@
 package com.bank.bank;
 
-import com.bank.bank.users.infrastructure.model.dtos.UserDto;
+import com.bank.bank.users.infrastructure.entities.dtos.UserDto;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

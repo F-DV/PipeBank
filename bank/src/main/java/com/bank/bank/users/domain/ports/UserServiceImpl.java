@@ -1,19 +1,21 @@
 package com.bank.bank.users.domain.ports;
 
 import com.bank.bank.users.domain.model.User;
+import com.bank.bank.users.domain.ports.out.UserRepositoryPort;
+import com.bank.bank.users.domain.ports.out.UserServicePort;
 import reactor.core.publisher.Flux;
 
 public class UserServiceImpl implements UserServicePort {
 
-    private final UserPersistencePort userPersistencePort;
+    private final UserRepositoryPort userRespositoryPort;
 
     //Constructor
-    public UserServiceImpl(UserPersistencePort userPersistencePort) {
-        this.userPersistencePort = userPersistencePort;
+    public UserServiceImpl(UserRepositoryPort userRepositoryPort) {
+        this.userRespositoryPort = userRepositoryPort;
     }
 
     @Override
     public Flux<User> findAllUsers() {
-        return userPersistencePort.findAllUsers();
+        return userRespositoryPort.findAllUsers();
     }
 }

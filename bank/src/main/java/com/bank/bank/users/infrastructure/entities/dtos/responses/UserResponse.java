@@ -1,6 +1,6 @@
-package com.bank.bank.users.infrastructure.model.dtos.responses;
+package com.bank.bank.users.infrastructure.entities.dtos.responses;
 
-import com.bank.bank.users.infrastructure.model.dtos.UserDto;
+import com.bank.bank.users.infrastructure.entities.dtos.UserDto;
 
 
 public class UserResponse extends UserDto {
