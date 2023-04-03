@@ -2,7 +2,7 @@ package com.bank.bank.users.infrastructure.controllers;
 
 import com.bank.bank.users.domain.ports.UserServicePort;
 import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
-import com.bank.bank.users.infrastructure.model.dtos.responses.UserResponse;
+import com.bank.bank.users.infrastructure.controllers.model.dtos.responses.UserResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

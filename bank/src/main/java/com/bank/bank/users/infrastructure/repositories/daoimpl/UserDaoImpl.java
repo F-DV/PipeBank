@@ -1,6 +1,6 @@
 package com.bank.bank.users.infrastructure.repositories.daoimpl;
 
-import com.bank.bank.users.infrastructure.model.entities.UserModel;
+import com.bank.bank.users.infrastructure.controllers.model.entities.UserModel;
 import com.bank.bank.users.infrastructure.repositories.dao.UserDao;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;

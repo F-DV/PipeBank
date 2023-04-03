@@ -1,4 +1,4 @@
-package com.bank.bank.users.infrastructure.model.entities;
+package com.bank.bank.users.infrastructure.controllers.model.entities;
 
 import java.util.Date;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.bank.bank.users.infrastructure.model.dtos;
+package com.bank.bank.users.infrastructure.controllers.model.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
