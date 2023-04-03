@@ -1,13 +1,8 @@
 package com.bank.bank.users.infrastructure.controllers;
-
 import com.bank.bank.users.applications.services.UserService;
-import com.bank.bank.users.domain.ports.out.UserServicePort;
 import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
-<<<<<<< HEAD
-import com.bank.bank.users.infrastructure.controllers.model.dtos.responses.UserResponse;
-=======
 import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
->>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

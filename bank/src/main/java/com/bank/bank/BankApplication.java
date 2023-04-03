@@ -1,10 +1,5 @@
 package com.bank.bank;
-
-<<<<<<< HEAD
-import com.bank.bank.users.infrastructure.controllers.model.dtos.UserDto;
-=======
 import com.bank.bank.users.infrastructure.entities.dtos.UserDto;
->>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +16,7 @@ public class BankApplication implements CommandLineRunner{
 		SpringApplication.run(BankApplication.class, args);
 	}
 
+
 	public Flux<UserDto> getUsers(){
 		UserDto userDto1 = new UserDto(12L,"Felipe","Quiceno","23423nkm23-32");
 		UserDto userDto2 = new UserDto(13L,"Andres","Romero","2342323-32");
@@ -34,9 +30,10 @@ public class BankApplication implements CommandLineRunner{
 		return Flux.fromIterable(users);
 	}
 
+
 	@Override
 	public void run(String... args) throws Exception {
 
-		getUsers().subscribe(u -> System.out.println(u));
+		//getUsers().subscribe(u -> System.out.println(u));
 	}
 }

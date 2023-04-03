@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:bank/src/main/java/com/bank/bank/users/infrastructure/controllers/model/entities/UserModel.java
-package com.bank.bank.users.infrastructure.controllers.model.entities;
-========
 package com.bank.bank.users.infrastructure.entities.entities;
->>>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39:bank/src/main/java/com/bank/bank/users/infrastructure/entities/entities/UserEntity.java
 
 import java.util.Date;
 import java.util.Objects;

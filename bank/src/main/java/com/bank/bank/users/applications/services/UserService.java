@@ -3,6 +3,7 @@ package com.bank.bank.users.applications.services;
 import com.bank.bank.users.domain.model.User;
 import com.bank.bank.users.domain.ports.in.CreateUserUseCase;
 import com.bank.bank.users.domain.ports.in.GetUserUseCase;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

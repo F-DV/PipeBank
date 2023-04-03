@@ -2,15 +2,10 @@ package com.bank.bank.users.infrastructure.mappers.impl;
 
 import com.bank.bank.users.domain.model.User;
 import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
-<<<<<<< HEAD
-import com.bank.bank.users.infrastructure.controllers.model.dtos.requests.UserRequest;
-import com.bank.bank.users.infrastructure.controllers.model.dtos.responses.UserResponse;
-import com.bank.bank.users.infrastructure.controllers.model.entities.UserModel;
-=======
 import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
 import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
 import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
->>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
+
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
