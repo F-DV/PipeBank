@@ -1,9 +1,14 @@
 package com.bank.bank.users.infrastructure.repositories.daoimpl;
 
+<<<<<<< HEAD
 import com.bank.bank.users.infrastructure.controllers.model.entities.UserModel;
+=======
+import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
+>>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
 import com.bank.bank.users.infrastructure.repositories.dao.UserDao;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 
@@ -17,26 +22,32 @@ public class UserDaoImpl implements UserDao {
      */
 
     @Override
-    public Flux<UserModel> findAllUsers() {
-        UserModel userDto1 = new UserModel();
+    public Mono<UserEntity> saveUser(UserEntity user) {
+
+        return Mono.empty();
+    }
+
+    @Override
+    public Flux<UserEntity> findAllUsers() {
+        UserEntity userDto1 = new UserEntity();
         userDto1.setId(12L);
         userDto1.setName("Felipe");
         userDto1.setLastName("Quiceno");
         userDto1.setNumberAccount("23423nkm23-32");
 
-        UserModel userDto2 = new UserModel();
+        UserEntity userDto2 = new UserEntity();
         userDto2.setId(13L);
         userDto2.setName("Andres");
         userDto2.setLastName("Romero");
         userDto2.setNumberAccount("2342323-32");
 
-        UserModel userDto3 = new UserModel();
+        UserEntity userDto3 = new UserEntity();
         userDto3.setId(14L);
         userDto3.setName("Carlos");
         userDto3.setLastName("Quintero");
         userDto3.setNumberAccount("23456nkm23-82");
 
-        ArrayList<UserModel> users = new ArrayList<>();
+        ArrayList<UserEntity> users = new ArrayList<>();
 
         users.add(userDto1);
         users.add(userDto2);

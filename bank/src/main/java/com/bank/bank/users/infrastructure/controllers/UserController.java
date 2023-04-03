@@ -1,8 +1,13 @@
 package com.bank.bank.users.infrastructure.controllers;
 
-import com.bank.bank.users.domain.ports.UserServicePort;
+import com.bank.bank.users.applications.services.UserService;
+import com.bank.bank.users.domain.ports.out.UserServicePort;
 import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
+<<<<<<< HEAD
 import com.bank.bank.users.infrastructure.controllers.model.dtos.responses.UserResponse;
+=======
+import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
+>>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +22,13 @@ public class UserController {
     private final UserRestMapper mapper;
 
     //Puerto del dominio
-    private final UserServicePort userServicePort;
+    private final UserService userService;
 
 
-    public UserController(UserRestMapper mapper, UserServicePort userServicePort) {
+    public UserController(UserRestMapper mapper, UserService userService) {
         this.mapper = mapper;
-        this.userServicePort = userServicePort;
+        this.userService = userService;
+
     }
 
     @GetMapping(path = "/users")
@@ -37,7 +43,7 @@ public class UserController {
         Flux<UserResponse> flujo = Flux.merge(mono,mono1,mono2).map(user -> mapper.usertoUserResponse(user));
         */
 
-        return Flux.from(userServicePort.findAllUsers()).map(user -> mapper.usertoUserResponse(user));
+        return Flux.from(userService.getUsers()).map(user -> mapper.usertoUserResponse(user));
     }
 
 

@@ -1,6 +1,10 @@
 package com.bank.bank;
 
+<<<<<<< HEAD
 import com.bank.bank.users.infrastructure.controllers.model.dtos.UserDto;
+=======
+import com.bank.bank.users.infrastructure.entities.dtos.UserDto;
+>>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

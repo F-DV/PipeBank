@@ -2,9 +2,15 @@ package com.bank.bank.users.infrastructure.mappers.impl;
 
 import com.bank.bank.users.domain.model.User;
 import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
+<<<<<<< HEAD
 import com.bank.bank.users.infrastructure.controllers.model.dtos.requests.UserRequest;
 import com.bank.bank.users.infrastructure.controllers.model.dtos.responses.UserResponse;
 import com.bank.bank.users.infrastructure.controllers.model.entities.UserModel;
+=======
+import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
+>>>>>>> 0af65fe2e003c6b131cfe2f9fc51bd5e173bbe39
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -75,7 +81,7 @@ public class UserRestMapperImpl implements UserRestMapper {
     }
 
     @Override
-    public UserModel usertoUserModel(User user) {
+    public UserEntity usertoUserModel(User user) {
         if(user == null){
             return null;
         }
@@ -86,12 +92,12 @@ public class UserRestMapperImpl implements UserRestMapper {
         Date birthDay = user.getBirthday();
         String phoneNumer = user.getPhoneNumber();
 
-        UserModel userModel = new UserModel(id,userName,lastName,birthDay,phoneNumer,numberAccount);
+        UserEntity userModel = new UserEntity(id,userName,lastName,birthDay,phoneNumer,numberAccount);
         return userModel;
     }
 
     @Override
-    public User userModeltoUser(UserModel userModel) {
+    public User userModeltoUser(UserEntity userModel) {
         if(userModel == null){
             return null;
         }
