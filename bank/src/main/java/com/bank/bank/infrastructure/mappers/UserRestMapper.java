@@ -1,10 +1,9 @@
-package com.bank.bank.users.infrastructure.mappers;
+package com.bank.bank.infrastructure.mappers;
 
 import com.bank.bank.users.domain.model.User;
-import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
-import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
-import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
-
+import com.bank.bank.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.infrastructure.entities.entities.UserEntity;
 
 
 public interface UserRestMapper {

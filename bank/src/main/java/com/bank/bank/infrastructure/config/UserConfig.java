@@ -1,4 +1,4 @@
-package com.bank.bank.users.infrastructure.config;
+package com.bank.bank.infrastructure.config;
 
 import com.bank.bank.users.applications.services.UserService;
 import com.bank.bank.users.applications.usecases.CreateUserUseCaseImpl;
@@ -15,5 +15,6 @@ public class UserConfig {
         return new UserService( new CreateUserUseCaseImpl(userRepositoryPort),
                 new GetUserUseCaseImpl(userRepositoryPort));
     }
+
 
 }

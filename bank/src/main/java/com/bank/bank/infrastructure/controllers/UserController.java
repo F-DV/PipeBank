@@ -1,22 +1,23 @@
-package com.bank.bank.users.infrastructure.controllers;
+package com.bank.bank.infrastructure.controllers;
+import com.bank.bank.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.infrastructure.mappers.UserRestMapper;
 import com.bank.bank.users.applications.services.UserService;
-import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
-import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.users.domain.model.User;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api")
 public class UserController {
 
 
     //Mapeador
     private final UserRestMapper mapper;
 
-    //Puerto del dominio
     private final UserService userService;
 
 
@@ -26,7 +27,7 @@ public class UserController {
 
     }
 
-    @GetMapping(path = "/users")
+    @GetMapping()
     public Flux<UserResponse> getUsers(){
 
         /*
@@ -39,6 +40,15 @@ public class UserController {
         */
 
         return Flux.from(userService.getUsers()).map(user -> mapper.usertoUserResponse(user));
+    }
+
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono<UserResponse> create(@RequestBody UserRequest userRequest){
+
+        User user1 = mapper.userResquesttoUser(userRequest);
+
+        return userService.createUser(user1).map(use -> mapper.usertoUserResponse(use));
     }
 
 

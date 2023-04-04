@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class User {
 
-    private Long id;
+    private String id;
     private String name;
     private String lastName;
     private Date birthday;
@@ -15,7 +15,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String lastName, Date birthday, String phoneNumber, String numberAccount) {
+    public User(String id, String name, String lastName, Date birthday, String phoneNumber, String numberAccount) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -24,11 +24,11 @@ public class User {
         this.numberAccount = numberAccount;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

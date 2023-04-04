@@ -1,10 +1,10 @@
-package com.bank.bank.users.infrastructure.mappers.impl;
+package com.bank.bank.infrastructure.mappers.impl;
 
+import com.bank.bank.infrastructure.mappers.UserRestMapper;
 import com.bank.bank.users.domain.model.User;
-import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
-import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
-import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
-import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
+import com.bank.bank.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.infrastructure.entities.dtos.responses.UserResponse;
+import com.bank.bank.infrastructure.entities.entities.UserEntity;
 
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class UserRestMapperImpl implements UserRestMapper {
         if(user == null){
             return null;
         }
-        Long id = user.getId();
+        String id = user.getId();
         String userName = user.getName();
         String lastName = user.getLastName();
         String numberAccount = user.getNumberAccount();
@@ -32,7 +32,7 @@ public class UserRestMapperImpl implements UserRestMapper {
         if(user == null){
             return null;
         }
-        Long id = user.getId();
+        String id = user.getId();
         String userName = user.getName();
         String lastName = user.getLastName();
         String numberAccount = user.getNumberAccount();
@@ -47,7 +47,7 @@ public class UserRestMapperImpl implements UserRestMapper {
             return null;
         }
 
-        Long id = userRequest.getId();
+        String id = userRequest.getId();
         String userName = userRequest.getUserName();
         String lastName = userRequest.getLastName();
         String numberAccount = userRequest.getNumberAccount();
@@ -64,7 +64,7 @@ public class UserRestMapperImpl implements UserRestMapper {
             return null;
         }
 
-        Long id = userResponse.getId();
+        String id = userResponse.getId();
         String userName = userResponse.getUserName();
         String lastName = userResponse.getLastName();
         String numberAccount = userResponse.getNumberAccount();
@@ -80,7 +80,7 @@ public class UserRestMapperImpl implements UserRestMapper {
         if(user == null){
             return null;
         }
-        Long id = user.getId();
+        String id = user.getId();
         String userName = user.getName();
         String lastName = user.getLastName();
         String numberAccount = user.getNumberAccount();
@@ -97,7 +97,7 @@ public class UserRestMapperImpl implements UserRestMapper {
             return null;
         }
 
-        Long id = userModel.getId();
+        String id = userModel.getId();
         String userName = userModel.getName();
         String lastName = userModel.getLastName();
         String numberAccount = userModel.getNumberAccount();

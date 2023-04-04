@@ -1,8 +1,8 @@
-package com.bank.bank.users.infrastructure.repositories.daoimpl;
+package com.bank.bank.infrastructure.repositories.daoimpl;
 
-import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
+import com.bank.bank.infrastructure.entities.entities.UserEntity;
+import com.bank.bank.infrastructure.repositories.dao.UserDao;
 
-import com.bank.bank.users.infrastructure.repositories.dao.UserDao;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -27,19 +27,19 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Flux<UserEntity> findAllUsers() {
         UserEntity userDto1 = new UserEntity();
-        userDto1.setId(12L);
+        userDto1.setId("12L");
         userDto1.setName("Felipe");
         userDto1.setLastName("Quiceno");
         userDto1.setNumberAccount("23423nkm23-32");
 
         UserEntity userDto2 = new UserEntity();
-        userDto2.setId(13L);
+        userDto2.setId("13L");
         userDto2.setName("Andres");
         userDto2.setLastName("Romero");
         userDto2.setNumberAccount("2342323-32");
 
         UserEntity userDto3 = new UserEntity();
-        userDto3.setId(14L);
+        userDto3.setId("14L");
         userDto3.setName("Carlos");
         userDto3.setLastName("Quintero");
         userDto3.setNumberAccount("23456nkm23-82");
