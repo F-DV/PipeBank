@@ -1,4 +1,4 @@
-package com.bank.bank.infrastructure.entities.entities;
+package com.bank.bank.users.infrastructure.entities.entities;
 
 import lombok.Getter;
 import lombok.Setter;

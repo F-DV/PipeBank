@@ -1,9 +1,12 @@
-package com.bank.bank.infrastructure.adapters;
-import com.bank.bank.infrastructure.mappers.UserRestMapper;
+package com.bank.bank.users.infrastructure.adapters;
 import com.bank.bank.users.domain.model.User;
 import com.bank.bank.users.domain.ports.out.UserRepositoryPort;
-import com.bank.bank.infrastructure.entities.entities.UserEntity;
-import com.bank.bank.infrastructure.repositories.dao.UserDao;
+import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
+import com.bank.bank.users.infrastructure.exceptions.BussinesException;
+import com.bank.bank.users.infrastructure.exceptions.RequestException;
+import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
+import com.bank.bank.users.infrastructure.repositories.dao.UserDao;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -31,6 +34,16 @@ public class UserAdapter implements UserRepositoryPort {
 
     @Override
     public Mono<User> save(User user) {
+
+        //Ejemplo Exception de Request
+        if(user.getName().equals("") || user.getName() == null){
+            throw new RequestException("P- toDefine",HttpStatus.BAD_REQUEST,"Name is required");
+        }
+
+        //Ejemplo Exception de negocio
+        if (user.getNumberAccount().equals("CA280-85")){
+            throw new BussinesException("P- toDefine", HttpStatus.INTERNAL_SERVER_ERROR," Number account already exist");
+        }
 
         UserEntity userEntity = mapper.usertoUserModel(user);
 

@@ -1,5 +1,5 @@
-package com.bank.bank.infrastructure.repositories.dao;
-import com.bank.bank.infrastructure.entities.entities.UserEntity;
+package com.bank.bank.users.infrastructure.repositories.dao;
+import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

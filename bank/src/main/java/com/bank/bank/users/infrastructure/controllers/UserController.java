@@ -1,14 +1,17 @@
-package com.bank.bank.infrastructure.controllers;
-import com.bank.bank.infrastructure.entities.dtos.requests.UserRequest;
-import com.bank.bank.infrastructure.entities.dtos.responses.UserResponse;
-import com.bank.bank.infrastructure.mappers.UserRestMapper;
+package com.bank.bank.users.infrastructure.controllers;
 import com.bank.bank.users.applications.services.UserService;
 import com.bank.bank.users.domain.model.User;
+import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
+import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
+import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.awt.*;
 
 @RestController
 @RequestMapping("api")
