@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ControllerAdvice {
-
+/*
     @ExceptionHandler(value = RuntimeException.class)
     public ResponseEntity<ErrorDto> runtimeExceptionHandler(RuntimeException ex){
 
@@ -18,6 +18,8 @@ public class ControllerAdvice {
 
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
+
+ */
     @ExceptionHandler(value = RequestException.class)
     public ResponseEntity<ErrorDto> requestExceptionHandler(RequestException ex){
 

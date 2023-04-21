@@ -1,62 +1,62 @@
 package com.bank.bank.accounts.domain.services;
 
+import java.io.PrintStream;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Account {
 
     private String accountNumber;
-    private String userName;
-    private Double amount = 0.0;
+    private Statement statement;
+    private Amount balance = Amount.amountOf(0);
 
-    public Account() {}
+    public Account() {
+        this.accountNumber = UUID.randomUUID().toString().substring(0,11);
+        this.statement = new Statement();
+    }
 
-    public Account(String username,Double amount) {
-        this.accountNumber =  UUID.randomUUID().toString().substring(0,11);
-        this.userName = username;
-        this.amount = amount;
+    //Deposito en cuenta
+    public void deposit(Amount value){
+        recordTransaction(value, LocalDate.now(),TypeTransaction.DEPOSIT);
+    }
+    public void withdrawal(Amount value){
+        recordTransaction(value, LocalDate.now(),TypeTransaction.WITHDRAW);
+    }
+    //Transferencia
+    public void transfer(Amount money, Account anotherAccount){
+        anotherAccount.deposit(money);
+        recordTransaction(money,LocalDate.now(),TypeTransaction.TRANSFER);
 
     }
 
-    public Boolean deposit(Double amount){
-
-        if(amount > 0.0 && amount != null){
-            this.amount = this.amount + amount;
-            return true;
-        }
-        return false;
-    }
-    public Boolean withDrawal(Double value) {
-
-        if(this.amount >= value){
-            this.amount = this.amount - value;
-            return true;
-        }
-        return false;
+    public void printStatement(PrintStream printer){
+        statement.printTo(printer);
     }
 
-    public Double getAmount() {
-        return amount;
-    }
+    /**
+     * Crea la transacción, realiza la acción sobre el balance y
+     * agrega el movimiento al estado de cuenta
+     * @param value
+     * @param date
+     * @param typeTransaction
+     */
+    private void recordTransaction(Amount value,LocalDate date,TypeTransaction typeTransaction){
+        Transaction transaction = new Transaction(value,date,typeTransaction);
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
+        //Realiza la accion sobre el balance
+        Amount balanceAfterTransaction = transaction.balanceAfterTransaction(balance,typeTransaction);
 
-    public String getAccountNumber() {
-        return accountNumber;
-    }
+        //Actualiza el balance de esta cuenta
+        this.balance = balanceAfterTransaction;
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
+        //Agregamos 1 registro a la lista del estado de cuenta
+        statement.addLineContaining(transaction, balanceAfterTransaction);
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
 
+    //Metodo Get para acceder al balance actual de esta cuenta
+    public Amount getBalance() {
+        return balance;
+    }
 }

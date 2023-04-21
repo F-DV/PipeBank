@@ -8,9 +8,14 @@ import java.util.Optional;
 
 public interface UserRepositoryPort {
 
-    //Optional<Mono<User>> findById(Long id);
+    Mono<User> findById(String id);
+
     Flux<User> findAllUsers();
 
     Mono<User> save(User user);
+
+    Mono<Void> deleteById(String id);
+
+    Mono<User> updateUser(User user);
 
 }

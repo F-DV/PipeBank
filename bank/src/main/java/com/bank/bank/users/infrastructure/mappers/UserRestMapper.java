@@ -4,6 +4,7 @@ import com.bank.bank.users.domain.model.User;
 import com.bank.bank.users.infrastructure.entities.dtos.requests.UserRequest;
 import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
 import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
+import reactor.core.publisher.Mono;
 
 
 public interface UserRestMapper {
@@ -20,6 +21,7 @@ public interface UserRestMapper {
 
     User userModeltoUser(UserEntity userModel);
 
+    Mono<UserResponse> usertoUserResponseMono(Mono<User> user);
 
 
 }

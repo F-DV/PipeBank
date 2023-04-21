@@ -1,23 +1,29 @@
 package com.bank.bank.users.applications.services;
 
 import com.bank.bank.users.domain.model.User;
-import com.bank.bank.users.domain.ports.in.CreateUserUseCase;
-import com.bank.bank.users.domain.ports.in.GetUserUseCase;
+import com.bank.bank.users.domain.ports.in.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.util.Optional;
 
-public class UserService implements CreateUserUseCase, GetUserUseCase {
+public class UserService implements CreateUserUseCase, GetUsersUseCase, DeleteUserUseCase, GetUserUseCase, UpdateUserUseCase {
 
     private final CreateUserUseCase createUserUseCase;
 
+    private final GetUsersUseCase getUsersUseCase;
+
+    private final DeleteUserUseCase deleteUserUseCase;
+
     private final GetUserUseCase getUserUseCase;
 
-    public UserService(CreateUserUseCase createUserUseCase, GetUserUseCase getUserUseCase) {
+    private final UpdateUserUseCase updateUserUseCase;
+
+    public UserService(CreateUserUseCase createUserUseCase, GetUsersUseCase getUsersUseCase, DeleteUserUseCase deleteUserUseCase, GetUserUseCase getUserUseCase, UpdateUserUseCase updateUserUseCase) {
         this.createUserUseCase = createUserUseCase;
+        this.getUsersUseCase = getUsersUseCase;
+        this.deleteUserUseCase = deleteUserUseCase;
         this.getUserUseCase = getUserUseCase;
+        this.updateUserUseCase = updateUserUseCase;
     }
 
     @Override
@@ -25,13 +31,29 @@ public class UserService implements CreateUserUseCase, GetUserUseCase {
         return createUserUseCase.createUser(user);
     }
 
-    @Override
-    public Optional<Mono<User>> getById(Long id) {
-        return Optional.empty();
-    }
 
     @Override
     public Flux<User> getUsers() {
-        return getUserUseCase.getUsers();
+
+        //Todo: debemos devolver una copia de la lista de usuarios, no los usuarios reales de la base de datos
+        //ArrayList<User> usersCopy = getUserUseCase.getUsers();
+
+        return getUsersUseCase.getUsers();
+    }
+
+
+    @Override
+    public Mono<Void> deleteUserById(String id) {
+        return deleteUserUseCase.deleteUserById(id);
+    }
+
+    @Override
+    public Mono<User> getById(String id) {
+        return getUserUseCase.getById(id);
+    }
+
+    @Override
+    public Mono<User> updateUser(User user) {
+        return updateUserUseCase.updateUser(user);
     }
 }

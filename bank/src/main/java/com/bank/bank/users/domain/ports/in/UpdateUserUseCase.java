@@ -3,7 +3,7 @@ package com.bank.bank.users.domain.ports.in;
 import com.bank.bank.users.domain.model.User;
 import reactor.core.publisher.Mono;
 
-public interface GetUserUseCase {
+public interface UpdateUserUseCase {
 
-    Mono<User> getById(String id);
+    Mono<User> updateUser(User user);
 }

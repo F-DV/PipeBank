@@ -6,12 +6,11 @@ import com.bank.bank.users.infrastructure.mappers.UserRestMapper;
 import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.awt.*;
+
 
 @RestController
 @RequestMapping("api")
@@ -30,19 +29,11 @@ public class UserController {
 
     }
 
-    @GetMapping()
+    @GetMapping(path = "/users")
     public Flux<UserResponse> getUsers(){
 
-        /*
-        // Crear flujo Flux, a partir de cada dato Mono
-
-        Mono<User> mono = userServicePort.findAllUsers().elementAt(0);
-        Mono<User> mono1 = userServicePort.findAllUsers().elementAt(1);
-        Mono<User> mono2 = userServicePort.findAllUsers().elementAt(2);
-        Flux<UserResponse> flujo = Flux.merge(mono,mono1,mono2).map(user -> mapper.usertoUserResponse(user));
-        */
-
-        return Flux.from(userService.getUsers()).map(user -> mapper.usertoUserResponse(user));
+        return Flux.from(userService.getUsers())
+                .map(user -> mapper.usertoUserResponse(user));
     }
 
     @PostMapping()
@@ -51,27 +42,29 @@ public class UserController {
 
         User user1 = mapper.userResquesttoUser(userRequest);
 
-        return userService.createUser(user1).map(use -> mapper.usertoUserResponse(use));
+        return userService.createUser(user1)
+                .map(use -> mapper.usertoUserResponse(use));
     }
 
-
-    /*
-    //Datos quemados aqui mismo
-
-    @GetMapping(path = "users")
-    public List<UserResponse> getUsers(){
-
-        UserResponse userDto1 = new UserResponse(12L,"Felipe","Quiceno","23423nkm23-32");
-        UserResponse userDto2 = new UserResponse(13L,"Andres","Romero","2342323-32");
-        UserResponse userDto3 = new UserResponse(14L,"Carlos","Quintero","23456nkm23-32");
-
-        ArrayList<UserResponse> users = new ArrayList<>();
-        users.add(userDto1);
-        users.add(userDto2);
-        users.add(userDto3);
-
-        return users;
+    @GetMapping(path = "{id}")
+    public Mono<UserResponse> getUserById(@PathVariable("id") String id){
+        return userService.getById(id).map(user -> mapper.usertoUserResponse(user));
     }
-     */
+
+    @PutMapping(path = "{id}")
+    public Mono<User> updateUser(@PathVariable("id") String id, @RequestBody UserRequest userRequest){
+
+        //Todo: Logica para actualizar usuario, aun no esta creada.
+
+        Mono<User> userToUpdate = userService.getById(id);
+
+        return null;
+    }
+
+    @DeleteMapping(path = "{id}")
+    public Mono<Void> deleteUser(@PathVariable("id") String id){
+        return userService.deleteUserById(id);
+    }
+
 
 }

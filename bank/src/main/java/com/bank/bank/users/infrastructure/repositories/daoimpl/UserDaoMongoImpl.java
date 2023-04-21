@@ -29,4 +29,19 @@ public class UserDaoMongoImpl implements UserDao {
     public Flux<UserEntity> findAllUsers() {
         return userRepository.findAll();
     }
+
+    @Override
+    public Mono<UserEntity> findById(String id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public Mono<Void> deleteById(String id) {
+        return userRepository.deleteById(id);
+    }
+
+    @Override
+    public Mono<UserEntity> updateUser(UserEntity user) {
+        return userRepository.save(user);
+    }
 }

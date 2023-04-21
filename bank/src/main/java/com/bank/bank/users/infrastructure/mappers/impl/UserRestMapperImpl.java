@@ -7,6 +7,8 @@ import com.bank.bank.users.infrastructure.entities.dtos.responses.UserResponse;
 import com.bank.bank.users.infrastructure.entities.entities.UserEntity;
 
 import org.springframework.stereotype.Component;
+import reactor.core.CoreSubscriber;
+import reactor.core.publisher.Mono;
 
 import java.util.Date;
 
@@ -106,6 +108,20 @@ public class UserRestMapperImpl implements UserRestMapper {
 
         User user = new User(id,userName,lastName,birthDay,phoneNumer,numberAccount);
         return user;
+    }
+
+    @Override
+    public Mono<UserResponse> usertoUserResponseMono(Mono<User> user) {
+        if(user == null){
+            return null;
+        }
+        Mono<UserResponse> userResponse;
+        userResponse = user.map(user1 -> {
+            return new UserResponse(user1.getId(),user1.getName(),user1.getLastName(),user1.getNumberAccount());
+
+        });
+
+        return userResponse;
     }
 
 

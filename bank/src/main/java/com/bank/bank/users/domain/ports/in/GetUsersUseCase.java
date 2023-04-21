@@ -1,9 +1,12 @@
 package com.bank.bank.users.domain.ports.in;
 
 import com.bank.bank.users.domain.model.User;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface GetUserUseCase {
+import java.util.Optional;
 
-    Mono<User> getById(String id);
+public interface GetUsersUseCase {
+
+    Flux<User> getUsers();
 }

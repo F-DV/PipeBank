@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Optional;
+import java.util.function.Supplier;
+
 @Service
 public class UserAdapter implements UserRepositoryPort {
 
@@ -25,9 +28,20 @@ public class UserAdapter implements UserRepositoryPort {
     }
 
     @Override
+    public Mono<User> findById(String id) {
+        Mono<User> user = userDao.findById(id).map(userEntity -> mapper.userModeltoUser(userEntity));
+
+        //Supplier para retornar una exception cada vez que es llamado
+        Supplier<RequestException> requestExceptionNotFound = () -> new RequestException("Not found",HttpStatus.NOT_FOUND,"User not found");
+
+
+
+        return userDao.findById(id).map(userEntity -> mapper.userModeltoUser(userEntity));
+    }
+
+    @Override
     public Flux<User> findAllUsers() {
         Flux<User> flujo = Flux.from(userDao.findAllUsers()).map(user -> mapper.userModeltoUser(user));
-
         return flujo;
 
     }
@@ -41,6 +55,7 @@ public class UserAdapter implements UserRepositoryPort {
         }
 
         //Ejemplo Exception de negocio
+        //Todo: Agregar logica que busque entre todos los numeros de cuentas de los usuarios para ver si existe o no
         if (user.getNumberAccount().equals("CA280-85")){
             throw new BussinesException("P- toDefine", HttpStatus.INTERNAL_SERVER_ERROR," Number account already exist");
         }
@@ -50,5 +65,18 @@ public class UserAdapter implements UserRepositoryPort {
 
 
         return userDao.saveUser(userEntity).map(us -> mapper.userModeltoUser(us));
+    }
+
+    @Override
+    public Mono<Void> deleteById(String id) {
+        return userDao.deleteById(id);
+    }
+
+    @Override
+    public Mono<User> updateUser(User user) {
+        UserEntity userEntity = mapper.usertoUserModel(user);
+
+
+        return userDao.updateUser(userEntity).map(us -> mapper.userModeltoUser(us));
     }
 }

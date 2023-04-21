@@ -52,4 +52,19 @@ public class UserDaoImpl implements UserDao {
 
         return Flux.fromIterable(users);
     }
+
+    @Override
+    public Mono<UserEntity> findById(String id) {
+        return null;
+    }
+
+    @Override
+    public Mono<Void> deleteById(String id) {
+        return null;
+    }
+
+    @Override
+    public Mono<UserEntity> updateUser(UserEntity user) {
+        return null;
+    }
 }

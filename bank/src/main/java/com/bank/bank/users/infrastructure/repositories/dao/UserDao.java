@@ -8,6 +8,9 @@ public interface UserDao {
 
     Mono<UserEntity> saveUser(UserEntity user);
     Flux<UserEntity> findAllUsers();
+    Mono<UserEntity> findById(String id);
+    Mono<Void> deleteById(String id);
+    Mono<UserEntity> updateUser(UserEntity user);
 
 
 }

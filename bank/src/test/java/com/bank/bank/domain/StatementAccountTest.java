@@ -1,7 +1,7 @@
 package com.bank.bank.domain;
 
 import com.bank.bank.accounts.domain.services.Account;
-import com.bank.bank.accounts.domain.services.StatementAccount;
+import com.bank.bank.accounts.domain.services.Statement;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,15 +22,11 @@ public class StatementAccountTest {
 
     //  Clase que necesita el Mock o en la que se inyectará el Mock
     @InjectMocks
-    private StatementAccount statementAccount;
+    private Statement statement;
 
     @Test
     public void get_statementAccount(){
-        when(myAccount.getUserName()).thenReturn("hello world");
 
-        String result = statementAccount.getStatement();
-
-        Assert.assertEquals("hello world",result);
     }
 
 
