@@ -9,12 +9,12 @@ public class UserRequest extends UserDto {
     public UserRequest() {
     }
 
-    public UserRequest(String id, String userName, String lastName, String numberAccount) {
-        super(id, userName, lastName, numberAccount);
+    public UserRequest(String id, String userName, String lastName) {
+        super(id, userName, lastName);
 
     }
-    public UserRequest(String userName, String lastName, String numberAccount) {
-        super(userName, lastName, numberAccount);
+    public UserRequest(String userName, String lastName) {
+        super(userName, lastName);
 
     }
 

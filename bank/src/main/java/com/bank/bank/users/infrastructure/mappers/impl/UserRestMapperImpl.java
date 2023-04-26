@@ -23,9 +23,8 @@ public class UserRestMapperImpl implements UserRestMapper {
         String id = user.getId();
         String userName = user.getName();
         String lastName = user.getLastName();
-        String numberAccount = user.getNumberAccount();
 
-        UserResponse userResponse = new UserResponse(id,userName,lastName,numberAccount);
+        UserResponse userResponse = new UserResponse(id,userName,lastName);
         return userResponse;
     }
 
@@ -37,9 +36,8 @@ public class UserRestMapperImpl implements UserRestMapper {
         String id = user.getId();
         String userName = user.getName();
         String lastName = user.getLastName();
-        String numberAccount = user.getNumberAccount();
 
-        UserRequest userRequest = new UserRequest(id,userName,lastName,numberAccount);
+        UserRequest userRequest = new UserRequest(id,userName,lastName);
         return userRequest;
     }
 
@@ -52,11 +50,10 @@ public class UserRestMapperImpl implements UserRestMapper {
         String id = userRequest.getId();
         String userName = userRequest.getUserName();
         String lastName = userRequest.getLastName();
-        String numberAccount = userRequest.getNumberAccount();
         Date birthDay = null;
         String phoneNumer = null;
 
-        User user = new User(id,userName,lastName,birthDay,phoneNumer,numberAccount);
+        User user = new User(id,userName,lastName);
         return user;
     }
 
@@ -69,11 +66,8 @@ public class UserRestMapperImpl implements UserRestMapper {
         String id = userResponse.getId();
         String userName = userResponse.getUserName();
         String lastName = userResponse.getLastName();
-        String numberAccount = userResponse.getNumberAccount();
-        Date birthDay = null;
-        String phoneNumer = null;
 
-        User user = new User(id,userName,lastName,birthDay,phoneNumer,numberAccount);
+        User user = new User(id,userName,lastName);
         return user;
     }
 
@@ -85,11 +79,8 @@ public class UserRestMapperImpl implements UserRestMapper {
         String id = user.getId();
         String userName = user.getName();
         String lastName = user.getLastName();
-        String numberAccount = user.getNumberAccount();
-        Date birthDay = user.getBirthday();
-        String phoneNumer = user.getPhoneNumber();
 
-        UserEntity userModel = new UserEntity(id,userName,lastName,birthDay,phoneNumer,numberAccount);
+        UserEntity userModel = new UserEntity(id,userName,lastName);
         return userModel;
     }
 
@@ -106,7 +97,7 @@ public class UserRestMapperImpl implements UserRestMapper {
         Date birthDay = null;
         String phoneNumer = null;
 
-        User user = new User(id,userName,lastName,birthDay,phoneNumer,numberAccount);
+        User user = new User(id,userName,lastName);
         return user;
     }
 
@@ -117,7 +108,7 @@ public class UserRestMapperImpl implements UserRestMapper {
         }
         Mono<UserResponse> userResponse;
         userResponse = user.map(user1 -> {
-            return new UserResponse(user1.getId(),user1.getName(),user1.getLastName(),user1.getNumberAccount());
+            return new UserResponse(user1.getId(),user1.getName(),user1.getLastName());
 
         });
 

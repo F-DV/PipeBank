@@ -14,12 +14,11 @@ public class UserDto {
     private String id;
     private String userName;
     private String lastName;
-    private String numberAccount;
 
-    public UserDto(String userName, String lastName, String numberAccount) {
+    public UserDto(String userName, String lastName){
         this.userName = userName;
         this.lastName = lastName;
-        this.numberAccount = numberAccount;
+
     }
 
     @Override
@@ -28,7 +27,6 @@ public class UserDto {
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", numberAccount='" + numberAccount + '\'' +
                 '}';
     }
 }

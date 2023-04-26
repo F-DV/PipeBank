@@ -56,10 +56,11 @@ public class UserAdapter implements UserRepositoryPort {
 
         //Ejemplo Exception de negocio
         //Todo: Agregar logica que busque entre todos los numeros de cuentas de los usuarios para ver si existe o no
+        /*
         if (user.getNumberAccount().equals("CA280-85")){
             throw new BussinesException("P- toDefine", HttpStatus.INTERNAL_SERVER_ERROR," Number account already exist");
         }
-
+*/
         UserEntity userEntity = mapper.usertoUserModel(user);
 
 

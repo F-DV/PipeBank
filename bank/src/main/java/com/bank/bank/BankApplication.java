@@ -18,7 +18,7 @@ public class BankApplication implements CommandLineRunner{
 		SpringApplication.run(BankApplication.class, args);
 	}
 
-
+/*
 	public Flux<UserDto> getUsers(){
 		UserDto userDto1 = new UserDto("12L","Felipe","Quiceno","23423nkm23-32");
 		UserDto userDto2 = new UserDto("13L","Andres","Romero","2342323-32");
@@ -31,7 +31,7 @@ public class BankApplication implements CommandLineRunner{
 
 		return Flux.fromIterable(users);
 	}
-
+*/
 
 	@Override
 	public void run(String... args) throws Exception {
